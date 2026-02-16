@@ -1,50 +1,5 @@
-/* base Tokyo Night Theme*/
-:root {
-    --bg: #1a1b26;
-    --fg: #c0caf5;
-    --blue: #7aa2f7;
-    --purple: #bb9af7;
-    --green: #9ece6a;
-    --red: #f7768e;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    background-color: var(--bg);
-    color: var(--fg);
-    font-size: "JetBrains Mono", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
-    width: 80%;
-    max-width: 800px;
-}
-
-h2 {
-    color: var(--blue);
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-textarea {
-    width: 100%;
-    height: 70vh;
-    background-color: var(--bg);
-    color: var(--fg);
-    border: 2px solid var(--purple);
-    border-radius: 8px;
-    padding: 1rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    resize: none;
-    outline: none;
 }
