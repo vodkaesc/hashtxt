@@ -1,33 +1,39 @@
-/* Tokyo Night — color variables */
+/* Overriding oat.ink variables with Tokyo Night Dark */
 :root {
-  --bg:           #1a1b26;
-  --bg-secondary: #24283b;
-  --border:       #414868;
-  --comment:      #565f89;
-  --fg-dim:       #9aa5ce;
-  --fg:           #c0caf5;
-  --fg-bright:    #ffffff;
-  --blue:         #7aa2f7;
-  --purple:       #bb9af7;
-  --accent:       #7aa2f7;
-  --accent-glow:  rgba(122, 162, 247, 0.18);
+  --background:         #1a1b26;
+  --foreground:         #c0caf5;
+  --card:               #24283b;
+  --muted:              #24283b;
+  --muted-foreground:   #9aa5ce;
+  --accent:             #414868;
+  --accent-foreground:  #c0caf5;
+  --border:             #414868;
+
+  /* extras for tokyo night */
+  --tn-blue:    #7aa2f7;
+  --tn-purple:  #bb9af7;
+  --tn-comment: #565f89;
+  --tn-glow:    rgba(122, 162, 247, 0.18);
 }
 
+/* Light theme override */
 [data-theme="light"] {
-  --bg:           #e6e7ed;
-  --bg-secondary: #d5d6e0;
-  --border:       #9aa5ce;
-  --comment:      #6c6e75;
-  --fg-dim:       #40434f;
-  --fg:           #343b58;
-  --fg-bright:    #1a1b26;
-  --blue:         #2959aa;
-  --purple:       #5a3e8e;
-  --accent:       #2959aa;
-  --accent-glow:  rgba(41, 89, 170, 0.14);
+  --background:         #e6e7ed;
+  --foreground:         #343b58;
+  --card:               #d5d6e0;
+  --muted:              #d5d6e0;
+  --muted-foreground:   #6c6e75;
+  --accent:             #9aa5ce;
+  --accent-foreground:  #343b58;
+  --border:             #9aa5ce;
+
+  --tn-blue:    #2959aa;
+  --tn-purple:  #5a3e8e;
+  --tn-comment: #6c6e75;
+  --tn-glow:    rgba(41, 89, 170, 0.14);
 }
 
-
+/* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -35,8 +41,5 @@
 }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
-  min-height: 100vh;
   transition: background 0.3s ease, color 0.3s ease;
 }
