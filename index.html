@@ -3,10 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>hashtxt </>
-    </title>
+    <title>hashtxt</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -29,35 +31,64 @@
     <!-- NAVBAR -->
     <nav class="fixed top-0 w-full bg-[#1A1B26] border-b-2 border-accent z-50 h-[40px]">
         <div class="max-w-[1024px] mx-auto h-full px-5 flex items-center justify-between">
+
             <a href="/" class="flex items-center gap-2 hover:opacity-80 transition">
                 <span class="text-[22px] font-medium">hashtxt</span>
                 <span class="text-[18px] font-medium">&lt;/&gt;</span>
             </a>
 
-            <a href="#" class="font-medium hover:opacity-70 transition">
-                Github
-            </a>
+            <div class="flex items-center gap-6">
+
+                <button class="text-primary hover:opacity-70 transition">
+                    <i class="fa-solid fa-arrow-up-from-bracket text-[16px]"></i>
+                </button>
+
+                <a href="#" class="font-medium hover:opacity-70 transition">
+                    Github
+                </a>
+
+            </div>
         </div>
     </nav>
 
     <!-- BODY -->
     <main class="flex-1 flex justify-center mt-[48px] overflow-hidden">
-        <!-- 40px navbar + 8px gap = 48px -->
-
         <div class="w-full max-w-[1024px] px-5 h-full">
-            <textarea placeholder="Start writing your note..." class="
-                    w-full
-                    h-full
-                    bg-transparent
-                    text-primary
-                    text-lg
-                    resize-none
-                    outline-none
-                    border-none
-                    placeholder:text-primary/40
-                "></textarea>
+            <textarea
+                placeholder="Start writing your note..."
+                class="w-full h-full bg-transparent text-primary text-lg resize-none outline-none border-none placeholder:text-primary/40"
+            ></textarea>
         </div>
     </main>
+
+    <!-- SCRIPT  -->
+    <script>
+        const textarea = document.querySelector("textarea");
+
+        function encodeText(text) {
+            return btoa(unescape(encodeURIComponent(text)));
+        }
+
+        function decodeText(text) {
+            try {
+                return decodeURIComponent(escape(atob(text)));
+            } catch {
+                return "";
+            }
+        }
+
+        // Load from URL when page opens
+        if (location.hash.length > 1) {
+            const hash = location.hash.substring(1);
+            textarea.value = decodeText(hash);
+        }
+
+        // Update URL when typing
+        textarea.addEventListener("input", () => {
+            const encoded = encodeText(textarea.value);
+            history.replaceState(null, "", "#" + encoded);
+        });
+    </script>
 
 </body>
 
